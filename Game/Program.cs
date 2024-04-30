@@ -6,14 +6,12 @@ using System.Diagnostics;
 int counts = 0;
 Random random = new Random();
 int winNumber = random.Next(1, 500);
-Console.WriteLine(winNumber);
 Stopwatch timer = new Stopwatch();
 timer.Start();
 
 while (true)
 {
     Console.Clear();
-    Console.WriteLine(winNumber);
     Console.WriteLine("\t\t\t\"Guess The Number\"");
     Console.Write("\n\nEnter your number from 1 to 500\nor enter 0 for exit\n>");
     int.TryParse(Console.ReadLine(), out int number);
@@ -52,13 +50,10 @@ while (true)
         Console.WriteLine("bye bye");
         break;
     }
-       
-    else if (choice == 1)
-    {
-        winNumber = random.Next(1, 500);
-        Console.WriteLine(winNumber);
-        timer.Restart();
-        Console.WriteLine("Okay, guess number again!!!");
-        continue;
-    }
+
+    winNumber = random.Next(1, 500);
+    timer.Restart();
+    counts = 0;
+    Console.WriteLine("Press any key to continue");
+    Console.ReadKey();
 }
